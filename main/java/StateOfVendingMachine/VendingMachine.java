@@ -2,9 +2,7 @@ package StateOfVendingMachine;
 
 import SnackDispenser.Snack;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class VendingMachine {
     private double currentMoney;
@@ -23,14 +21,6 @@ public class VendingMachine {
 
     public void setCurrentMoney(double currentMoney) {
         this.currentMoney = currentMoney;
-    }
-
-    public StateOfVendingMachine getStateOfVendingMachine() {
-        return stateOfVendingMachine;
-    }
-
-    public void setStateOfVendingMachine(StateOfVendingMachine stateOfVendingMachine) {
-        this.stateOfVendingMachine = stateOfVendingMachine;
     }
 
     public Snack getSnackSelected() {
