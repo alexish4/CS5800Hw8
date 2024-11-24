@@ -1,21 +1,24 @@
 package SnackDispenser;
 
+import StateOfVendingMachine.VendingMachine;
+
 public class KitKatDispenseHandler extends SnackDispenseHandler {
     public KitKatDispenseHandler(SnackDispenseHandler next) {
         super(next);
     }
 
     @Override
-    public void handleRequest(Snack snack) {
-        if(snack.getName().equals("KitKat")) {
-            if(snack.getQuantity() > 1) {
-                snack.setQuantity(snack.getQuantity() - 1);
-            } else {
-                System.out.println("Out of Kit Kats");
+    public void handleRequest(VendingMachine vendingMachine) {
+        if(vendingMachine.getSnackSelected().getName().equals("KitKat")) {
+            if(vendingMachine.getSnackSelected().getQuantity() == 0) {
+                System.out.println("Out of KitKats");
+            } else  {
+                vendingMachine.getSnackSelected().setQuantity(vendingMachine.getSnackSelected().getQuantity() - 1);
+                System.out.println("KitKat Dispensed\n");
             }
 
         } else {
-            super.handleRequest(snack);
+            super.handleRequest(vendingMachine);
         }
     }
 }

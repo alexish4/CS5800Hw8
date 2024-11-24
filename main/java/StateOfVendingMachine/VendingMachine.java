@@ -33,6 +33,10 @@ public class VendingMachine {
         this.stateOfVendingMachine = stateOfVendingMachine;
     }
 
+    public Snack getSnackSelected() {
+        return snackSelected;
+    }
+
     public void selectSnack(Snack snack) {
         snackSelected = snack;
         stateOfVendingMachine = new WaitingForMoneyState();
@@ -49,6 +53,6 @@ public class VendingMachine {
     }
 
     public void dispenseSnack() {
-        stateOfVendingMachine.dispenseSnack(snackSelected);
+        stateOfVendingMachine.dispenseSnack(this);
     }
 }

@@ -15,7 +15,7 @@ public class VendingMachineDriver {
         Snack pepsi = new Snack("Pepsi", 2.00, 9);
         Snack doritos = new Snack("Doritos", 2.50, 4);
         Snack kitkat = new Snack("KitKat", 2.75, 6);
-        Snack snickers = new Snack("Snickers", 2.00, 5);
+        Snack snickers = new Snack("Snickers", 2.00, 1);
 
         List<Snack> snacks = new ArrayList<Snack>();
         snacks.add(cheetos);
@@ -35,6 +35,14 @@ public class VendingMachineDriver {
         vendingMachine.dispenseSnack();
 
         vendingMachine.insertMoney(0.50);
+        vendingMachine.dispenseSnack();
+
+        vendingMachine.selectSnack(snickers);
+        vendingMachine.insertMoney(2.00);
+        vendingMachine.dispenseSnack();
+
+        vendingMachine.selectSnack(snickers);
+        vendingMachine.insertMoney(2.00);
         vendingMachine.dispenseSnack();
     }
 }

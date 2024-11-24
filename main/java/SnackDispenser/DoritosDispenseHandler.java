@@ -1,21 +1,24 @@
 package SnackDispenser;
 
+import StateOfVendingMachine.VendingMachine;
+
 public class DoritosDispenseHandler extends SnackDispenseHandler {
     public DoritosDispenseHandler(SnackDispenseHandler next) {
         super(next);
     }
 
     @Override
-    public void handleRequest(Snack snack) {
-        if(snack.getName().equals("Doritos")) {
-            if(snack.getQuantity() > 1) {
-                snack.setQuantity(snack.getQuantity() - 1);
-            } else {
+    public void handleRequest(VendingMachine vendingMachine) {
+        if(vendingMachine.getSnackSelected().getName().equals("Doritos")) {
+            if(vendingMachine.getSnackSelected().getQuantity() == 0) {
                 System.out.println("Out of Doritos");
+            } else  {
+                vendingMachine.getSnackSelected().setQuantity(vendingMachine.getSnackSelected().getQuantity() - 1);
+                System.out.println("Doritos Dispensed\n");
             }
 
         } else {
-            super.handleRequest(snack);
+            super.handleRequest(vendingMachine);
         }
     }
 }

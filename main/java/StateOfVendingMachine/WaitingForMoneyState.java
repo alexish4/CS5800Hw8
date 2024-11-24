@@ -4,7 +4,7 @@ import SnackDispenser.Snack;
 
 public class WaitingForMoneyState implements StateOfVendingMachine {
     @Override
-    public void dispenseSnack(Snack snack) {
-        System.out.println(snack.getName() + " is waiting for money");
+    public void dispenseSnack(VendingMachine vendingMachine) {
+        System.out.println("Waiting For Money State: " + vendingMachine.getSnackSelected().getName() + " is waiting for money\n");
     }
 }

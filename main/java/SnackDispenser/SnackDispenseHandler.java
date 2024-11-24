@@ -1,5 +1,7 @@
 package SnackDispenser;
 
+import StateOfVendingMachine.VendingMachine;
+
 public abstract class SnackDispenseHandler {
     private SnackDispenseHandler next;
 
@@ -7,9 +9,9 @@ public abstract class SnackDispenseHandler {
         this.next = next;
     }
 
-    public void handleRequest(Snack snack) {
+    public void handleRequest(VendingMachine vendingMachine) {
         if (next != null) {
-            next.handleRequest(snack);
+            next.handleRequest(vendingMachine);
         }
     }
 }

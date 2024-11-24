@@ -1,21 +1,24 @@
 package SnackDispenser;
 
+import StateOfVendingMachine.VendingMachine;
+
 public class PepsiDispenseHandler extends SnackDispenseHandler {
     public PepsiDispenseHandler(SnackDispenseHandler next) {
         super(next);
     }
 
     @Override
-    public void handleRequest(Snack snack) {
-        if(snack.getName().equals("Pepsi")) {
-            if(snack.getQuantity() > 1) {
-                snack.setQuantity(snack.getQuantity() - 1);
-            } else {
+    public void handleRequest(VendingMachine vendingMachine) {
+        if(vendingMachine.getSnackSelected().getName().equals("Pepsi")) {
+            if(vendingMachine.getSnackSelected().getQuantity() == 0) {
                 System.out.println("Out of Pepsi");
+            } else  {
+                vendingMachine.getSnackSelected().setQuantity(vendingMachine.getSnackSelected().getQuantity() - 1);
+                System.out.println("Pepsi Dispensed\n");
             }
 
         } else {
-            super.handleRequest(snack);
+            super.handleRequest(vendingMachine);
         }
     }
 }
