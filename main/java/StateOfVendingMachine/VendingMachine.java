@@ -7,8 +7,8 @@ import java.util.List;
 public class VendingMachine {
     private double currentMoney;
     private StateOfVendingMachine stateOfVendingMachine = new IdleState();
-    List<Snack> snacks;
-    Snack snackSelected;
+    private List<Snack> snacks;
+    private Snack snackSelected;
 
     public VendingMachine(double currentMoney, List<Snack> snacks) {
         this.currentMoney = currentMoney;
@@ -21,6 +21,14 @@ public class VendingMachine {
 
     public void setCurrentMoney(double currentMoney) {
         this.currentMoney = currentMoney;
+    }
+
+    public StateOfVendingMachine getStateOfVendingMachine() {
+        return stateOfVendingMachine;
+    }
+
+    public List<Snack> getSnacks() {
+        return snacks;
     }
 
     public Snack getSnackSelected() {

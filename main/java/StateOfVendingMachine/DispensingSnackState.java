@@ -9,6 +9,7 @@ public class DispensingSnackState implements StateOfVendingMachine{
                 (new CheetosDispenseHandler(new DoritosDispenseHandler(new KitKatDispenseHandler
                         (new SnickersDispenseHandler(null))))));
         double change = vendingMachine.getCurrentMoney() - vendingMachine.getSnackSelected().getPrice();
+        vendingMachine.setCurrentMoney(change);
 
         System.out.print("Dispensing State: ");
 

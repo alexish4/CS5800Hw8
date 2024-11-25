@@ -34,7 +34,7 @@ public class VendingMachineDriver {
         vendingMachine.insertMoney(2.00);
         vendingMachine.dispenseSnack();
 
-        vendingMachine.insertMoney(0.50);
+        vendingMachine.insertMoney(1.00);
         vendingMachine.dispenseSnack();
 
         vendingMachine.selectSnack(snickers);
