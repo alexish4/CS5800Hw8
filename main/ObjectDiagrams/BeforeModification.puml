@@ -1,0 +1,67 @@
+@startuml
+'https://plantuml.com/object-diagram
+
+object "<u>characterPropertiesFactory:CharacterPropertiesFactory</u>" as characterPropertiesFactory {
+    characterPropertiesMap = [
+        "arial16Black" -> {font="Arial", fontSize=16, fontColor="Black"},
+        "arial14Black" -> {font="Arial", fontSize=14, fontColor="Black"},
+        "verdana18Blue" -> {font="Verdana", fontSize=18, fontColor="Blue"},
+        "verdana12Red" -> {font="Verdana", fontSize=12, fontColor="Red"},
+    ]
+}
+
+object "<u>arial16Black:CharacterProperties</u>" as arial16Black {
+    font = "Arial"
+    fontSize = 16
+    fontColor = "Black"
+}
+
+object "<u>arial14Black:CharacterProperties</u>" as arial14Black {
+    font = "Arial"
+    fontSize = 14
+    fontColor = "Black"
+}
+
+object "<u>verdana18Blue:CharacterProperties</u>" as verdana18Blue {
+    font = "Verdana"
+    fontSize = 18
+    fontColor = "Blue"
+}
+
+object "<u>verdana12Red:CharacterProperties</u>" as verdana12Red {
+    font = "Verdana"
+    fontSize = 12
+    fontColor = "Red"
+}
+
+object "<u>document:Document</u>" as document {
+    characters = [
+        {symbol='H', properties=arial16Black},
+        {symbol='e', properties=arial14Black},
+        {symbol='l', properties=arial14Black},
+        {symbol='l', properties=arial14Black},
+        {symbol='o', properties=arial14Black},
+        {symbol='W', properties=arial14Black},
+        {symbol='o', properties=arial14Black},
+        {symbol='r', properties=arial14Black},
+        {symbol='l', properties=arial14Black},
+        {symbol='d', properties=arial14Black},
+        {symbol='C', properties=verdana18Blue},
+        {symbol='S', properties=verdana18Blue},
+        {symbol='5', properties=verdana12Red},
+        {symbol='8', properties=verdana12Red},
+        {symbol='0', properties=verdana12Red},
+        {symbol='0', properties=verdana12Red}
+    ]
+}
+
+characterPropertiesFactory --o arial16Black
+characterPropertiesFactory --o arial14Black
+characterPropertiesFactory --o verdana18Blue
+characterPropertiesFactory --o verdana12Red
+
+document --o arial16Black : 'H'
+document --o arial14Black : 'e', 'l', 'W', 'o', 'r', 'l', 'd'
+document --o verdana18Blue : 'C', 'S'
+document --o verdana12Red : '5', '8', '0', '0'
+@enduml

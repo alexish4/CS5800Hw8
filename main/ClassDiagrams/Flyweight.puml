@@ -1,0 +1,50 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Character {
+    - char symbol
+    - CharacterProperties properties
+
+    + Character(char symbol, CharacterProperties properties)
+    + String printSymbolAndProperties()
+    + char getSymbol()
+    + CharacterProperties getProperties()
+}
+
+class CharacterProperties {
+    - String font
+    - int fontSize
+    - String fontColor
+
+    + CharacterProperties(String font, int fontSize, String fontColor)
+    + String getFont()
+    + void setFont(String font)
+    + int getFontSize()
+    + void setFontSize(int fontSize)
+    + String getFontColor()
+    + void setFontColor(String fontColor)
+    + String displayProperties()
+}
+
+class CharacterPropertiesFactory {
+    - Map<String, CharacterProperties> characterPropertiesMap
+
+    + CharacterProperties getCharacterProperties(String font, int fontSize, String fontColor)
+}
+
+class Document {
+    - List<Character> characters
+
+    + List<Character> getCharacters()
+    + void addCharacter(char symbol, String font, int fontSize, String fontColor, CharacterPropertiesFactory factory)
+    + void editCharacterProperties(int index, String font, String color, int size)
+    + void saveToFile(String filename) throws IOException
+    + void loadFromFile(String filename, CharacterPropertiesFactory factory) throws IOException
+    + String displayCharacters()
+}
+
+Character --* CharacterProperties : "1"
+Document --* Character : "1..*"
+CharacterPropertiesFactory --o CharacterProperties : "creates"
+
+@enduml
